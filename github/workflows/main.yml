@@ -1,0 +1,4 @@
+# Name of workflow
+name: Link workflow
+
+# Trigger workflow on all pull requests

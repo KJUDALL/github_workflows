@@ -11,11 +11,22 @@ on:
 # Jobs to carry out
 jobs: 
   test:
-    runs-on: mac-os-latest
+    runs-on: macos-latest
 
 # Steps in job
-steps: 
-  - name: github_workflows
-    uses: actions/checkout@v1
+    steps: 
+      - name: github_workflows
+        uses: actions/checkout@v1
 
-  - name: Use Node.js
+      - name: Use Node.js 21.x
+        uses: actions/setup-node@v1
+        with: 
+          node-version: 21.x
+
+    # Install dependencies 
+    - name: Install dependencies
+      run: npm install
+
+    # Run lint
+    - name: Run Lint
+      run: npm run lint
